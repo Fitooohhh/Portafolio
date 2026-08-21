@@ -107,7 +107,7 @@ export default function App() {
   const [titleIndex, setTitleIndex] = useState(0)
   const [theme, setTheme] = useState<'dark' | 'light'>(() => {
     const saved = localStorage.getItem('portfolio-theme')
-    return (saved === 'light' || saved === 'dark') ? saved : 'dark'
+    return (saved === 'light' || saved === 'dark') ? saved : 'light'
   })
 
   useEffect(() => {
