@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { DotLottieReact } from '@lottiefiles/dotlottie-react'
 import {
-  Sparkles, ArrowRight, Mail, Phone, MapPin, Globe, Camera,
+  Sparkles, ArrowRight, Mail, Phone, MapPin, Globe,
   GraduationCap, Award, Code, Server, Wrench, Folder,
   ExternalLink, Star, Send, ChevronRight, Eye, Heart,
   ArrowUp, Zap, Gamepad2, BookOpen, Rocket, Circle, Sun, Moon
@@ -162,25 +163,16 @@ export default function App() {
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ type: 'spring', stiffness: 200, damping: 15, delay: 0.1 }}
                 style={{
-                  width: 120, height: 120, borderRadius: '50%',
-                  background: theme === 'dark'
-                    ? 'linear-gradient(135deg, var(--cyan), var(--purple))'
-                    : 'linear-gradient(135deg, var(--purple), var(--blue))',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  width: 500, height: 280,
                   margin: '0 auto 2rem',
-                  boxShadow: theme === 'dark'
-                    ? '0 0 60px rgba(6, 214, 160, 0.3)'
-                    : '0 0 60px rgba(124, 45, 212, 0.25)',
                 }}
               >
-                <div style={{
-                  width: '100%', height: '100%', borderRadius: '50%',
-                  background: theme === 'dark' ? '#000' : '#ffffff',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: '3rem', fontWeight: 800, color: 'var(--purple)',
-                }}>
-                  AV
-                </div>
+                <DotLottieReact
+                  src="/ironman.json"
+                  loop
+                  autoplay
+                  style={{ width: '100%', height: '100%' }}
+                />
               </motion.div>
               <motion.h1 className="splash-name" {...fadeUp} transition={{ duration: 0.8, delay: 0.3 }}>
                 <span className="splash-hola">Hola, soy</span>
@@ -289,25 +281,14 @@ export default function App() {
                             initial={{ scale: 0, rotate: -180 }}
                             animate={{ scale: 1, rotate: 0 }}
                             transition={{ type: 'spring', stiffness: 150, damping: 15, delay: 0.2 }}
-                            style={{
-                              width: 150, height: 150, borderRadius: '50%', flexShrink: 0,
-                              background: theme === 'dark'
-                                ? 'linear-gradient(135deg, var(--cyan), var(--purple))'
-                                : 'linear-gradient(135deg, var(--purple), var(--blue))',
-                              padding: 3,
-                              boxShadow: theme === 'dark'
-                                ? '0 0 50px rgba(6, 214, 160, 0.25)'
-                                : '0 0 50px rgba(124, 45, 212, 0.2)',
-                            }}
+                            style={{ width: 300, height: 300, flexShrink: 0 }}
                           >
-                            <div style={{
-                              width: '100%', height: '100%', borderRadius: '50%',
-                              background: theme === 'dark' ? 'var(--bg)' : '#ffffff',
-                              display: 'flex', alignItems: 'center', justifyContent: 'center',
-                              fontSize: '3.5rem', fontWeight: 800, color: 'var(--purple)',
-                            }}>
-                              AV
-                            </div>
+                            <DotLottieReact
+                              src="/Spiderman.json"
+                              loop
+                              autoplay
+                              style={{ width: '100%', height: '100%' }}
+                            />
                           </motion.div>
                           <motion.div className="home-main" {...stagger} initial="initial" animate="animate" style={{ flex: 1, minWidth: 300 }}>
                             <motion.div className="greeting" variants={fadeUp} transition={{ duration: 0.5 }}>
@@ -335,16 +316,16 @@ export default function App() {
                               <motion.button
                                 className="btn btn-primary"
                                 onClick={() => navigateTo('projects')}
-                                whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(6, 214, 160, 0.3)' }}
+                                whileHover={{ scale: 1.05, boxShadow: theme === 'dark' ? '0 0 30px rgba(6, 214, 160, 0.3)' : '0 0 30px rgba(124, 45, 212, 0.3)' }}
                                 whileTap={{ scale: 0.95 }}
                               >
                                 <Folder size={18} />
                                 Ver Proyectos
                               </motion.button>
                               <motion.button
-                                className="btn btn-secondary"
+                                className="btn btn-contact"
                                 onClick={() => navigateTo('contact')}
-                                whileHover={{ scale: 1.05, borderColor: 'var(--cyan)', color: 'var(--cyan)' }}
+                                whileHover={{ scale: 1.05, boxShadow: '0 0 25px rgba(212, 32, 122, 0.3)' }}
                                 whileTap={{ scale: 0.95 }}
                               >
                                 <Send size={18} />
@@ -353,8 +334,8 @@ export default function App() {
                             </motion.div>
                             <motion.div variants={fadeUp} transition={{ duration: 0.5 }} style={{ display: 'flex', gap: '0.75rem', marginTop: '1.5rem' }}>
                               {[
-                                { icon: <Globe size={18} />, href: 'https://github.com/Fitooohhh', color: 'var(--cyan)', label: 'GitHub' },
-                                { icon: <Camera size={18} />, href: 'https://instagram.com/Fitooooo_h0908', color: 'var(--pink)', label: 'Instagram' },
+                                { icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>, href: 'https://github.com/Fitooohhh', color: 'var(--cyan)', label: 'GitHub' },
+                                { icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>, href: 'https://instagram.com/Fitooooo_h0908', color: 'var(--pink)', label: 'Instagram' },
                                 { icon: <Mail size={18} />, href: 'mailto:avm0098@gmail.com', color: 'var(--purple)', label: 'Email' },
                               ].map((social, i) => (
                                 <motion.a
@@ -379,10 +360,10 @@ export default function App() {
                         </div>
                         <motion.div className="home-stats" {...stagger} initial="initial" animate="animate">
                           {[
-                            { icon: <Code size={22} />, value: '6+', label: 'Proyectos', color: 'var(--cyan)' },
-                            { icon: <Award size={22} />, value: '5', label: 'Certificaciones', color: 'var(--purple)' },
-                            { icon: <GraduationCap size={22} />, value: '6to', label: 'Semestre', color: 'var(--blue)' },
-                            { icon: <Star size={22} />, value: '3', label: 'Idiomas', color: 'var(--pink)' },
+                            { icon: <Code size={26} />, value: '6+', label: 'Proyectos', color: 'var(--cyan)' },
+                            { icon: <Award size={26} />, value: '5+', label: 'Certificaciones', color: 'var(--purple)' },
+                            { icon: <GraduationCap size={26} />, value: '6to', label: 'Semestre', color: 'var(--blue)' },
+                            { icon: <Star size={26} />, value: '3', label: 'Idiomas', color: 'var(--pink)' },
                           ].map((stat, i) => (
                             <motion.div
                               key={i}
@@ -416,11 +397,12 @@ export default function App() {
                           <div className="info-list">
                             {[
                               { icon: <Star size={18} />, label: 'Nombre', value: 'Adolfo Javier Vera Matijasevic', color: 'var(--cyan)' },
-                              { icon: <Mail size={18} />, label: 'Email', value: 'avm0098@gmail.com', color: 'var(--purple)', href: 'mailto:avm0098@gmail.com' },
-                              { icon: <Phone size={18} />, label: 'Teléfono', value: '+591 70333911', color: 'var(--blue)', href: 'tel:+59170333911' },
-                              { icon: <MapPin size={18} />, label: 'Dirección', value: 'Emilio Mendizabal #309, Sucre', color: 'var(--pink)' },
-                              { icon: <Globe size={18} />, label: 'GitHub', value: 'Fitruscus', color: 'var(--cyan)', href: 'https://github.com/Fitooohhh' },
-                              { icon: <Camera size={18} />, label: 'Instagram', value: '@Fitooooo_h0908', color: 'var(--pink)', href: 'https://instagram.com/Fitooooo_h0908' },
+                              { icon: <Mail size={18} />, label: 'Email Personal', value: 'avm0098@gmail.com', color: 'var(--purple)', href: 'mailto:avm0098@gmail.com' },
+                              { icon: <Mail size={18} />, label: 'Email Institucional', value: 'VMA3006013@est.univalle.edu', color: 'var(--blue)', href: 'mailto:VMA3006013@est.univalle.edu' },
+                              { icon: <Phone size={18} />, label: 'Teléfono', value: '+591 70333911', color: 'var(--pink)', href: 'tel:+59170333911' },
+                              { icon: <MapPin size={18} />, label: 'Dirección', value: 'Emilio Mendizabal #309, Sucre', color: 'var(--orange)' },
+                              { icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>, label: 'GitHub', value: 'Fitooohhh', color: 'var(--cyan)', href: 'https://github.com/Fitooohhh' },
+                              { icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>, label: 'Instagram', value: '@Fitooooo_h0908', color: 'var(--pink)', href: 'https://instagram.com/Fitooooo_h0908' },
                             ].map((item, i) => (
                               <motion.div
                                 key={i}
@@ -536,11 +518,13 @@ export default function App() {
                         <h3 style={{ marginBottom: '1.5rem' }}>Certificaciones y Cursos</h3>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                           {[
-                            { name: 'Introduction to Cybersecurity', issuer: 'Credly', color: 'var(--cyan)' },
-                            { name: 'AI Fundamentals with IBM SkillsBuild', issuer: 'Credly', color: 'var(--purple)' },
-                            { name: 'Python Essentials 1', issuer: 'Credly', color: 'var(--blue)' },
-                            { name: 'Artificial Intelligence Fundamentals', issuer: 'Credly', color: 'var(--pink)' },
-                            { name: 'Get Connected', issuer: 'Cisco', color: 'var(--orange)' },
+                            { name: 'Introduction to Cybersecurity', issuer: 'Cisco', color: 'var(--cyan)' },
+                            { name: 'Introduction to Modern AI', issuer: 'Cisco', color: 'var(--purple)' },
+                            { name: 'CCNA: Introducción a las Redes de Cisco', issuer: 'Cisco', color: 'var(--blue)' },
+                            { name: 'AI Fundamentals with IBM SkillsBuild', issuer: 'IBM', color: 'var(--pink)' },
+                            { name: 'Python Essentials 1', issuer: 'Cisco', color: 'var(--orange)' },
+                            { name: 'Artificial Intelligence Fundamentals', issuer: 'IBM', color: 'var(--yellow)' },
+                            { name: 'Get Connected', issuer: 'Cisco', color: 'var(--cyan)' },
                           ].map((cert, i) => (
                             <motion.div
                               key={i}
@@ -548,7 +532,7 @@ export default function App() {
                               initial={{ opacity: 0, x: -20 }}
                               whileInView={{ opacity: 1, x: 0 }}
                               viewport={{ once: true }}
-                              transition={{ duration: 0.4, delay: i * 0.08 }}
+                              transition={{ duration: 0.4, delay: i * 0.06 }}
                               whileHover={{ background: 'rgba(255,255,255,0.04)', x: 4 }}
                             >
                               <div className="info-icon" style={{ '--item-color': cert.color } as React.CSSProperties}><Award size={18} /></div>
@@ -556,12 +540,6 @@ export default function App() {
                                 <span className="info-value">{cert.name}</span>
                                 <span className="info-label">{cert.issuer}</span>
                               </div>
-                              <motion.div
-                                whileHover={{ scale: 1.2, rotate: 15 }}
-                                style={{ color: cert.color, marginLeft: 'auto' }}
-                              >
-                                <ExternalLink size={14} />
-                              </motion.div>
                             </motion.div>
                           ))}
                         </div>
@@ -854,11 +832,12 @@ export default function App() {
                           <h3 style={{ fontSize: '1.3rem', fontWeight: 700, marginBottom: '1.5rem' }}>Información de Contacto</h3>
                           <div className="contact-methods">
                             {[
-                              { icon: <Mail size={18} />, label: 'Email', value: 'avm0098@gmail.com', color: 'var(--cyan)', href: 'mailto:avm0098@gmail.com' },
+                              { icon: <Mail size={18} />, label: 'Email Personal', value: 'avm0098@gmail.com', color: 'var(--cyan)', href: 'mailto:avm0098@gmail.com' },
+                              { icon: <Mail size={18} />, label: 'Email Institucional', value: 'VMA3006013@est.univalle.edu', color: 'var(--blue)', href: 'mailto:VMA3006013@est.univalle.edu' },
                               { icon: <Phone size={18} />, label: 'Teléfono', value: '+591 70333911', color: 'var(--purple)', href: 'tel:+59170333911' },
                               { icon: <MapPin size={18} />, label: 'Dirección', value: 'Emilio Mendizabal #309, Sucre', color: 'var(--pink)' },
-                              { icon: <Globe size={18} />, label: 'GitHub', value: 'Fitruscus', color: 'var(--blue)', href: 'https://github.com/Fitooohhh' },
-                              { icon: <Camera size={18} />, label: 'Instagram', value: '@Fitooooo_h0908', color: 'var(--pink)', href: 'https://instagram.com/Fitooooo_h0908' },
+                              { icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>, label: 'GitHub', value: 'Fitooohhh', color: 'var(--blue)', href: 'https://github.com/Fitooohhh' },
+                              { icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>, label: 'Instagram', value: '@Fitooooo_h0908', color: 'var(--pink)', href: 'https://instagram.com/Fitooooo_h0908' },
                             ].map((method, i) => (
                               <motion.div
                                 key={i}
@@ -893,7 +872,7 @@ export default function App() {
                               <span className="status-dot" />
                               Disponible para oportunidades
                             </div>
-                            <p>Abierto a propuestas laborales y colaboraciones en proyectos de desarrollo web.</p>
+                            <p>Abierto a propuestas laborales, pasantías y colaboraciones en proyectos de desarrollo web, tanto en Bolivia como en el exterior.</p>
                           </motion.div>
                         </motion.div>
                         <motion.div {...slideRight} transition={{ duration: 0.6, delay: 0.2 }}>
@@ -939,8 +918,8 @@ export default function App() {
                       >
                         <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginBottom: '1rem' }}>
                           {[
-                            { icon: <Globe size={18} />, href: 'https://github.com/Fitooohhh', color: 'var(--cyan)' },
-                            { icon: <Camera size={18} />, href: 'https://instagram.com/Fitooooo_h0908', color: 'var(--pink)' },
+                            { icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>, href: 'https://github.com/Fitooohhh', color: 'var(--cyan)' },
+                            { icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>, href: 'https://instagram.com/Fitooooo_h0908', color: 'var(--pink)' },
                             { icon: <Mail size={18} />, href: 'mailto:avm0098@gmail.com', color: 'var(--purple)' },
                           ].map((s, i) => (
                             <motion.a
