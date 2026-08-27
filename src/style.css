@@ -839,22 +839,26 @@ input, textarea { font-family: inherit; }
 .interest-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.4rem;
+  gap: 0.5rem;
 }
 
 .interest-tag {
-  padding: 0.3rem 0.7rem;
+  padding: 0.45rem 1rem;
   background: var(--bg-card);
   border: 1px solid var(--glass-border);
   border-radius: 50px;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 500;
   color: var(--fg-muted);
   transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
 }
 
 .interest-tag:hover {
   border-color: var(--cyan);
   color: var(--cyan);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* ============ Skills View ============ */
@@ -869,12 +873,15 @@ input, textarea { font-family: inherit; }
   background: var(--bg-card);
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-lg);
-  padding: 1.5rem;
+  padding: 1.75rem;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
 }
 
 .skill-category:hover {
   border-color: var(--glass-border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
 }
 
 .category-header {
@@ -910,6 +917,15 @@ input, textarea { font-family: inherit; }
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
+  padding: 0.6rem 0.9rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.skill-item:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateX(4px);
 }
 
 .skill-info {
@@ -962,40 +978,44 @@ input, textarea { font-family: inherit; }
 }
 
 .language-card {
-  background: var(--bg-card);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius-md);
-  padding: 1.5rem;
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
   text-align: center;
   transition: all 0.3s ease;
+  cursor: default;
 }
 
 .language-card:hover {
-  border-color: var(--lang-color, var(--cyan));
-  transform: translateY(-4px);
+  transform: translateY(-8px) scale(1.02);
 }
 
-.lang-flag {
-  font-size: 2.5rem;
+.lang-flag-img {
+  width: 70px;
+  height: 52px;
+  object-fit: contain;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   display: block;
-  margin-bottom: 0.75rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .lang-info {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .lang-name {
   display: block;
-  color: var(--fg);
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 .lang-level {
-  color: var(--fg-muted);
   font-size: 0.85rem;
+  font-weight: 500;
 }
 
 .lang-bar {
@@ -1522,8 +1542,7 @@ textarea.form-input {
 [data-theme="light"] .skill-category,
 [data-theme="light"] .project-card,
 [data-theme="light"] .contact-method,
-[data-theme="light"] .interest-category,
-[data-theme="light"] .language-card {
+[data-theme="light"] .interest-category {
   background: #ffffff;
   border-color: rgba(0, 0, 0, 0.06);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
@@ -1532,8 +1551,7 @@ textarea.form-input {
 [data-theme="light"] .about-card:hover,
 [data-theme="light"] .skill-category:hover,
 [data-theme="light"] .project-card:hover,
-[data-theme="light"] .contact-method:hover,
-[data-theme="light"] .language-card:hover {
+[data-theme="light"] .contact-method:hover {
   box-shadow: 0 8px 32px rgba(124, 45, 212, 0.1);
 }
 

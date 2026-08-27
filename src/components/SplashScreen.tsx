@@ -30,8 +30,9 @@ export default function SplashScreen({ onComplete }: SplashScreenProps) {
           initial={{ scale: 0, rotate: -180 }}
           animate={{ scale: 1, rotate: 0 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.34, 1.56, 0.64, 1] }}
+          style={{ width: 100, height: 100, borderRadius: '50%', overflow: 'hidden', background: '#ffffff' }}
         >
-          <span className="logo-initial">AVM</span>
+          <img src="/Youuuu.jpeg" alt="AV" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
         </motion.div>
 
         <motion.h1

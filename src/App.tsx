@@ -5,7 +5,7 @@ import {
   Sparkles, ArrowRight, Mail, Phone, MapPin, Globe,
   GraduationCap, Award, Code, Server, Wrench, Folder,
   ExternalLink, Star, Send, ChevronRight, Eye, Heart,
-  ArrowUp, Zap, Gamepad2, BookOpen, Rocket, Circle, Sun, Moon
+  ArrowUp, Zap, Gamepad2, BookOpen, Rocket, Circle, Sun, Moon, Database
 } from 'lucide-react'
 
 const fadeUp = { initial: { opacity: 0, y: 40 }, animate: { opacity: 1, y: 0 } }
@@ -117,7 +117,7 @@ export default function App() {
 
   const toggleTheme = () => setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'))
 
-  const titles = ['Desarrollador Web Full Stack', 'Ingeniero en Sistemas', 'Creador de Experiencias Digitales']
+  const titles = ['Estudiante de Ingeniería de Sistemas']
 
   useEffect(() => {
     if (showSplash) return
@@ -163,16 +163,13 @@ export default function App() {
                 animate={{ scale: 1, rotate: 0 }}
                 transition={{ type: 'spring', stiffness: 200, damping: 15, delay: 0.1 }}
                 style={{
-                  width: 500, height: 280,
+                  width: 200, height: 200, borderRadius: '50%', overflow: 'hidden',
                   margin: '0 auto 2rem',
+                  boxShadow: '0 0 60px rgba(124, 45, 212, 0.3)',
+                  background: '#ffffff',
                 }}
               >
-                <DotLottieReact
-                  src="/ironman.json"
-                  loop
-                  autoplay
-                  style={{ width: '100%', height: '100%' }}
-                />
+                <img src="/Youuuu.jpeg" alt="Adolfo Javier" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
               </motion.div>
               <motion.h1 className="splash-name" {...fadeUp} transition={{ duration: 0.8, delay: 0.3 }}>
                 <span className="splash-hola">Hola, soy</span>
@@ -181,7 +178,7 @@ export default function App() {
                 <span className="splash-gradient-text">Vera Matijasevic</span>
               </motion.h1>
               <motion.p className="splash-subtitle" {...fadeUp} transition={{ duration: 0.6, delay: 0.6 }}>
-                Desarrollador Web Full Stack
+                Estudiante de Ingeniería de Sistemas
               </motion.p>
               <motion.p className="splash-langs" {...fadeUp} transition={{ duration: 0.6, delay: 0.75 }}>
                 Sucre, Bolivia
@@ -223,7 +220,7 @@ export default function App() {
                   style={{ cursor: 'pointer' }}
                   onClick={() => navigateTo('home')}
                 >
-                  AV
+                  <img src="/Youuuu.jpeg" alt="AV" style={{ width: 64, height: 64, borderRadius: '50%', objectFit: 'contain', background: '#ffffff' }} />
                 </motion.div>
                 <div className="navbar-links">
                   {navItems.map((item) => (
@@ -308,9 +305,8 @@ export default function App() {
                               >|</motion.span>
                             </motion.div>
                             <motion.p className="description" variants={fadeUp} transition={{ duration: 0.5 }}>
-                              Desarrollador web con experiencia en la creación de aplicaciones modernas y responsivas.
-                              Busco oportunidades para aplicar mis habilidades técnicas y creativas en proyectos desafiantes
-                              que me permitan crecer profesionalmente mientras contribuyo al éxito del equipo.
+                              Estudiante de sexto semestre de Ingeniería de Sistemas con experiencia en el desarrollo de aplicaciones web modernas y responsivas.
+                              Abierto a oportunidades laborales y pasantías profesionales donde pueda aplicar mis habilidades técnicas, seguir aprendiendo y contribuir al éxito del equipo.
                             </motion.p>
                             <motion.div className="home-actions" variants={fadeUp} transition={{ duration: 0.5 }}>
                               <motion.button
@@ -589,17 +585,6 @@ export default function App() {
                                 <div key={i} className="skill-item">
                                   <div className="skill-info">
                                     <span className="skill-name">{skill.name}</span>
-                                    <span className="skill-level">{skill.level}%</span>
-                                  </div>
-                                  <div className="skill-bar">
-                                    <motion.div
-                                      className="skill-progress"
-                                      initial={{ width: 0 }}
-                                      whileInView={{ width: `${skill.level}%` }}
-                                      viewport={{ once: true }}
-                                      transition={{ duration: 1, delay: i * 0.06, ease: 'easeOut' }}
-                                      style={{ background: cat.gradient }}
-                                    />
                                   </div>
                                 </div>
                               ))}
@@ -648,25 +633,15 @@ export default function App() {
                       </motion.div>
                       <motion.div className="languages-grid" {...stagger} initial="initial" whileInView="animate" viewport={{ once: true }}>
                         {[
-                          { flag: '\uD83C\uDDE6\uD83C\uDDF7', name: 'Español', level: 'Nativo', progress: 100, color: 'var(--cyan)' },
-                          { flag: '\uD83C\uDDEC\uD83C\uDDE7', name: 'Inglés', level: 'Avanzado (B2/C1)', progress: 80, color: 'var(--purple)' },
-                          { flag: '\uD83C\uDDE9\uD83C\uDDEA', name: 'Alemán', level: 'Básico (A1)', progress: 25, color: 'var(--blue)' },
+                          { flag: 'https://flagcdn.com/w80/es.png', name: 'Español', level: 'Nativo', color: 'var(--cyan)', gradient: 'linear-gradient(135deg, #ff6b6b, #ee5a24)' },
+                          { flag: 'https://flagcdn.com/w80/gb.png', name: 'Inglés', level: 'Avanzado (B2/C1)', color: 'var(--purple)', gradient: 'linear-gradient(135deg, #6c5ce7, #a29bfe)' },
+                          { flag: 'https://flagcdn.com/w80/de.png', name: 'Alemán', level: 'Básico (A1)', color: 'var(--blue)', gradient: 'linear-gradient(135deg, #0984e3, #74b9ff)' },
                         ].map((lang, i) => (
-                          <motion.div key={i} className="language-card" variants={fadeUp} transition={{ duration: 0.4 }} whileHover={{ y: -6, borderColor: lang.color, boxShadow: `0 0 20px ${lang.color}22` }}>
-                            <motion.span className="lang-flag" whileHover={{ scale: 1.2, rotate: 10 }}>{lang.flag}</motion.span>
+                          <motion.div key={i} className="language-card" variants={fadeUp} transition={{ duration: 0.4 }} whileHover={{ y: -8, scale: 1.02, boxShadow: `0 12px 40px ${lang.color}33` }} style={{ background: lang.gradient, border: 'none' }}>
+                            <motion.img src={lang.flag} alt={lang.name} className="lang-flag-img" whileHover={{ scale: 1.15, rotate: 5 }} />
                             <div className="lang-info">
-                              <span className="lang-name">{lang.name}</span>
-                              <span className="lang-level">{lang.level}</span>
-                            </div>
-                            <div className="lang-bar">
-                              <motion.div
-                                className="lang-progress"
-                                initial={{ width: 0 }}
-                                whileInView={{ width: `${lang.progress}%` }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 1, delay: i * 0.15, ease: 'easeOut' }}
-                                style={{ background: lang.color }}
-                              />
+                              <span className="lang-name" style={{ color: '#ffffff' }}>{lang.name}</span>
+                              <span className="lang-level" style={{ color: 'rgba(255,255,255,0.85)' }}>{lang.level}</span>
                             </div>
                           </motion.div>
                         ))}
@@ -689,15 +664,17 @@ export default function App() {
                       <motion.div className="projects-grid" {...stagger} initial="initial" whileInView="animate" viewport={{ once: true }} style={{ marginBottom: '3rem' }}>
                         {[
                           {
-                            title: 'Sistema de Control de Asistencia', category: 'Académico', year: '2025',
-                            description: 'Desarrollo de una aplicación en C# con base de datos SQL para el control de asistencia.',
-                            tags: ['C#', 'SQL', 'Biometría'], color: 'var(--cyan)', icon: <Zap size={20} />,
-                            features: ['Desarrollo de una aplicación en C# con base de datos SQL', 'Implementación de biometría para el registro de asistencia'],
+                            title: 'Sistema de Control de Filas - Banco', category: 'Académico', year: '2024',
+                            description: 'Desarrollo de una aplicación de escritorio en C# con WPF para la simulación y gestión de filas de clientes en un entorno bancario.',
+                            tags: ['C#', 'WPF', '.NET Framework'], color: 'var(--cyan)', icon: <Zap size={20} />,
+                            url: 'https://github.com/Fitooohhh/ControlFilasBanco.git',
+                            features: ['Gestión de clientes con tipos Normal, Preferencial y Servicio Rápido', 'Control de 8 cajas con estados Libre, Ocupada e Inactiva', 'Configuración de cajas: Personalizada, Todas normales, Preferenciales o Rápidas', 'Generación de reportes: total de personas, preferenciales, normales, servicio rápido y promedios de espera/atención', 'Historial de llamadas y tablero de visualización en tiempo real', 'Implementación de patrón Singleton para la gestión del banco', 'Reproducción de video de espera para clientes'],
                           },
                           {
                             title: 'Página Web Productos de Limpieza', category: 'Académico', year: '2025',
                             description: 'Desarrollo de una página Web para productos de limpieza.',
                             tags: ['HTML', 'CSS', 'JavaScript'], color: 'var(--purple)', icon: <Globe size={20} />,
+                            url: 'https://lim-silk.vercel.app/',
                             features: ['Desarrollo de una página Web para productos de limpieza'],
                           },
                           {
@@ -705,6 +682,20 @@ export default function App() {
                             description: 'Desarrollo de una casa Inteligente a escala totalmente automatizada.',
                             tags: ['Arduino', 'IoT', 'Automatización'], color: 'var(--blue)', icon: <Rocket size={20} />,
                             features: ['Desarrollo de una casa Inteligente a escala totalmente automatizada'],
+                          },
+                          {
+                            title: 'Sistema de Gestión de Parque', category: 'Académico', year: '2025',
+                            description: 'Desarrollo de una aplicación de escritorio en C# con WPF y base de datos local SQLite para la administración de un parque.',
+                            tags: ['C#', 'WPF', 'SQLite'], color: 'var(--orange)', icon: <Database size={20} />,
+                            url: 'https://github.com/Fitooohhh/appEscritorioParque.git',
+                            features: ['Gestión de clientes, empleados, puestos y horarios', 'Control de reservas, boletos, servicios, eventos y mantenimientos', 'Generación de reportes e historial de actividades'],
+                          },
+                          {
+                            title: 'Sistema de Control de Asistencia Colegio', category: 'Académico', year: '2025',
+                            description: 'Desarrollo de una aplicación de escritorio en C# con WPF para la gestión y control de asistencia en un entorno escolar, utilizando base de datos local.',
+                            tags: ['C#', 'WPF', 'SQL Server'], color: 'var(--pink)', icon: <BookOpen size={20} />,
+                            url: 'https://github.com/Fitooohhh/sistemaControlAsistenciaColegio.git',
+                            features: ['Gestión de empleados, departamentos, asignaciones y horarios', 'Control de asistencia de profesores con registro de ingreso y salida', 'Solicitudes de permisos, vacaciones y ausencias de empleados y estudiantes', 'Panel de administración, profesor y estudiante con roles diferenciados', 'Seguimiento de calificaciones y actividades académicas'],
                           },
                         ].map((project, i) => (
                           <motion.div
@@ -740,6 +731,15 @@ export default function App() {
                                   <motion.span key={j} className="tag" whileHover={{ scale: 1.1, borderColor: project.color, color: project.color }}>{tag}</motion.span>
                                 ))}
                               </div>
+                              {project.url && (
+                                <div className="project-links">
+                                  <motion.a href={project.url} target="_blank" rel="noreferrer" className="project-link" whileHover={{ scale: 1.05, borderColor: project.color, color: project.color }}>
+                                    <Eye size={14} />
+                                    Ver Proyecto
+                                    <ExternalLink size={12} />
+                                  </motion.a>
+                                </div>
+                              )}
                             </div>
                           </motion.div>
                         ))}
@@ -762,7 +762,7 @@ export default function App() {
                             features: ['Desarrollo de una página Web sobre productos de limpieza con base de datos Postgre SQL', 'Implementación de monitoreo de pedidos en tiempo real', 'Desarrollo de reportes de inventario entre sucursales', 'Desarrollo de sistema de Gestión de compras', 'Implementación de verificación de usuarios mediante correo electrónico', 'Implementación de pasarela de pagos', 'Implementación de un sistema de control para el administrador de cada sucursal'],
                           },
                           {
-                            title: 'Reconnect 43 Unity 2D', category: 'Profesional', url: null,
+                            title: 'Reconnect 43 Unity 2D', category: 'Profesional', url: 'https://fabicas.itch.io/reconnect43',
                             description: 'Desarrollo del juego Reconnect 43 con Unity en 2D, creado completamente desde cero.',
                             tags: ['Unity', 'C#', 'Game Dev'], badge: null, color: 'var(--pink)', icon: <Gamepad2 size={20} />,
                             features: ['Creación de los sprites del juego desde 0', 'Implementación y desarrollo de las mecánicas del juego', 'Modelado de escenarios del juego', 'Desarrollo e implementación de la historia del juego'],

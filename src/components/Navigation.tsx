@@ -27,7 +27,7 @@ export default function Navigation({ currentView, onNavigate, disabled }: Naviga
       transition={{ duration: 0.6, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <div className="nav-brand">
-        <span className="brand-initial">AVM</span>
+        <img src="/Youuuu.jpeg" alt="AV" style={{ width: 48, height: 48, borderRadius: '50%', objectFit: 'contain', background: '#ffffff' }} />
         <span className="brand-name">Portafolio</span>
       </div>
 
